@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Scents - Evoke Your Essence</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome for Icons (Optional - for quote icons etc) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="logo reveal reveal-fade-down">
+                <!-- Add your logo image here -->
+                <img src="HARVEIL_logo.png" alt="Aura Scents Logo">
+                <!-- Or use text: <h1>Aura Scents</h1> -->
+            </div>
+            <nav class="main-nav reveal reveal-fade-down">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <!-- Login Link -->
+                    <li><a href="login.html" class="nav-login-link">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="reveal reveal-fade-up">Discover Your Signature Scent</h1>
+                <p class="reveal reveal-fade-up delay-1">Exquisite fragrances crafted with passion and artistry, wrapped in notes of elegance.</p>
+                <a href="#shop" class="btn reveal reveal-fade-up delay-2">Explore Collection</a>
+            </div>
+            <!-- Optional: Scroll down indicator -->
+            <a href="#about" class="scroll-down-link" aria-label="Scroll down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section content-section">
+            <div class="container split-layout">
+                <div class="split-content reveal reveal-left">
+                    <h2>The Art of Perfumery</h2>
+                     <hr class="section-divider">
+                    <p>At Aura Scents, we believe that fragrance is more than just a scent; it's an invisible accessory, a mood enhancer, a memory trigger. We meticulously blend the finest natural ingredients from around the world to create unique olfactory experiences.</p>
+                    <p>Our journey began with a passion for capturing moments and emotions in a bottle. Each fragrance tells a story, designed to resonate with your individual essence and leave a lasting impression.</p>
+                </div>
+                <div class="split-image reveal reveal-right">
+                     <!-- Add an image that represents 'artistry' or 'ingredients' -->
+                     <img src="km_8.jpg" alt="Artisan perfumery concept">
+                     <!-- **** Remember to replace 'images/about-image.jpg' **** -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================== -->
+        <!-- ===== SHOP SECTION - UPDATED ====== -->
+        <!-- ===================================== -->
+        <section id="shop" class="shop-section content-section">
+            <div class="container">
+                <h2 class="reveal reveal-fade-up">Our Signature Collection</h2>
+                 <hr class="section-divider">
+                <div class="product-grid">
+
+                    <!-- Product Card 1: Citrus Zest -->
+                    <div class="product-card reveal reveal-zoom-in">
+                        <div class="product-image">
+                            <img src="citrus_zest.jpg" alt="Citrus Zest">
+                        </div>
+                        <div class="product-info">
+                            <h3>Citrus Zest</h3>
+                            <!-- **** Update description below **** -->
+                            <p>A vibrant explosion of sparkling lemon, grapefruit, and bergamot notes.</p>
+                             <!-- **** Update price below **** -->
+                            <span class="price">₹599</span>
+                            <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2: Lavender Breeze -->
+                    <div class="product-card reveal reveal-zoom-in delay-1">
+                        <div class="product-image">
+                            <!-- Check filename spelling: Lavneder or Lavender? -->
+                            <img src="lavender_breeze.jpg" alt="Lavender Breeze Perfume">
+                        </div>
+                        <div class="product-info">
+                            <h3>Lavender Breeze</h3>
+                            <!-- **** Update description below **** -->
+                            <p>Calming French lavender mingled with soft floral undertones and a hint of mint.</p>
+                            <!-- **** Update price below **** -->
+                            <span class="price">₹899</span>
+                             <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3: Oud & Spice -->
+                    <div class="product-card reveal reveal-zoom-in delay-2">
+                        <div class="product-image">
+                             <img src="oud_spice.jpg" alt="Oud & Spice Perfume">
+                        </div>
+                        <div class="product-info">
+                            <h3>Oud & Spice</h3>
+                             <!-- **** Update description below **** -->
+                            <p>An opulent blend of rich oud wood, warm cinnamon, cardamom, and black pepper.</p>
+                            <!-- **** Update price below **** -->
+                            <span class="price">₹999</span>
+                             <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+
+                     <!-- Product Card 4: Vanilla & Amber -->
+                    <div class="product-card reveal reveal-zoom-in delay-3">
+                        <div class="product-image">
+                             <img src="vanilla_amber.jpg" alt="Vanilla & Amber Perfume">
+                        </div>
+                        <div class="product-info">
+                            <h3>Vanilla & Amber</h3>
+                            <!-- **** Update description below **** -->
+                            <p>A warm embrace of creamy vanilla bean, golden amber, and a touch of smooth sandalwood.</p>
+                            <!-- **** Update price below **** -->
+                            <span class="price">₹999</span>
+                             <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+
+
+                    <div class="product-card reveal reveal-zoom-in delay-3">
+                        <div class="product-image">
+                             <img src="WhatsApp Image 2025-04-26 at 18.58.59_1fa9340a.jpg" alt="Vanilla & Amber Perfume">
+                        </div>
+                        <div class="product-info">
+                            <h3>Sea Breeze & Musk</h3>
+                            <!-- **** Update description below **** -->
+                            <p>Embrace the fresh allure of the ocean with a warm touch of musk — a scent that's effortlessly captivating.</p>
+                            <!-- **** Update price below **** -->
+                            <span class="price">₹999</span>
+                             <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card reveal reveal-zoom-in delay-3">
+                        <div class="product-image">
+                             <img src="WhatsApp Image 2025-04-26 at 18.58.59_8cdc2048.jpg" alt="Vanilla & Amber Perfume">
+                        </div>
+                        <div class="product-info">
+                            <h3>Jasmine</h3>
+                            <!-- **** Update description below **** -->
+                            <p>Let the timeless elegance of jasmine wrap you in a delicate, enchanting fragrance.</p>
+                            <!-- **** Update price below **** -->
+                            <span class="price">₹999</span>
+                             <button class="btn-view">View Details</button>
+                        </div>
+                    </div>
+
+
+
+                </div> <!-- End Product Grid -->
+            </div> <!-- End Container -->
+        </section>
+        <!-- ===================================== -->
+        <!-- === END UPDATED SHOP SECTION ====== -->
+        <!-- ===================================== -->
+
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section content-section">
+            <div class="container">
+                 <h2 class="reveal reveal-fade-up">Whispers of Delight</h2>
+                 <hr class="section-divider">
+                 <div class="testimonial-grid">
+                     <!-- Testimonial 1 -->
+                     <div class="testimonial-card reveal reveal-left">
+                         <div class="testimonial-content">
+                             <i class="fas fa-quote-left quote-icon"></i>
+                             <p>Absolutely captivating! The scent lasts all day and I always get compliments. Velvet Bloom is my new signature.</p>
+                             <!-- **** Update testimonials with real quotes **** -->
+                             <i class="fas fa-quote-right quote-icon end-quote"></i>
+                         </div>
+                         <p class="testimonial-author">- Sarah J.</p>
+                     </div>
+                     <!-- Testimonial 2 -->
+                     <div class="testimonial-card reveal reveal-fade-up delay-1">
+                          <div class="testimonial-content">
+                             <i class="fas fa-quote-left quote-icon"></i>
+                             <p>Mystic Woods is incredible. It's warm, sophisticated, and truly unique. The packaging is beautiful too.</p>
+                              <!-- **** Update testimonials with real quotes **** -->
+                             <i class="fas fa-quote-right quote-icon end-quote"></i>
+                         </div>
+                         <p class="testimonial-author">- Michael B.</p>
+                     </div>
+                     <!-- Testimonial 3 -->
+                     <div class="testimonial-card reveal reveal-right delay-2">
+                          <div class="testimonial-content">
+                             <i class="fas fa-quote-left quote-icon"></i>
+                             <p>The quality is undeniable. I feel transported every time I wear Coastal Breeze. Such a fresh and elegant scent.</p>
+                              <!-- **** Update testimonials with real quotes **** -->
+                             <i class="fas fa-quote-right quote-icon end-quote"></i>
+                         </div>
+                         <p class="testimonial-author">- Chloe T.</p>
+                     </div>
+                      <!-- Add more testimonials -->
+                 </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section content-section">
+            <div class="container reveal reveal-fade-up">
+                <h2>Connect With Us</h2>
+                 <hr class="section-divider">
+                <p>Have questions or want to explore bespoke fragrance options? We'd love to hear from you.</p>
+                <p>Reach out via email:</p>
+                <p><a href="mailto:info@aurascents.com" class="contact-email">harshpatil1656@gmail.com</a></p>
+                <p class="social-prompt">Follow our journey on social media: @Harveil Pufumery</p><p>Contact us :7507517852</p>
+                <div class="social-icons">
+                     <!-- Add actual social media links -->
+                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                     <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                 </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about reveal reveal-left">
+                    <h4>Aura Scents</h4>
+                    <p>Crafting memories, one scent at a time. Experience the luxury of bespoke fragrance.</p>
+                </div>
+                <div class="footer-column footer-links reveal reveal-fade-up delay-1">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#shop">Shop Collection</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">FAQs</a></li> <!-- Link to potential FAQ page -->
+                        <li><a href="#">Privacy Policy</a></li> <!-- Link to potential Policy page -->
+                    </ul>
+                </div>
+                <div class="footer-column footer-newsletter reveal reveal-right delay-2">
+                    <h4>Stay Updated</h4>
+                    <p>Receive exclusive offers and news about our latest creations.</p>
+                    <form class="newsletter-form" action="#" method="post"> <!-- Replace # with newsletter processing endpoint -->
+                        <input type="email" name="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="site-footer-bottom">
+                <p>© 2024 Harveil Scents. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

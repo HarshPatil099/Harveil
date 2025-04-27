@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Aura Scents</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the SAME CSS file -->
+    <!-- Google Fonts (ensure they match index.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome (Optional, if using icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="login-page-body"> <!-- Add specific class for potential body styling -->
+
+    <div class="login-container">
+        <div class="login-header">
+             <!-- You can add your logo here too if desired -->
+             <!-- <img src="images/your-logo.png" alt="Aura Scents Logo" class="login-logo"> -->
+             <h2>Welcome Back</h2>
+             <p>Please login to your Aura Scents account.</p>
+        </div>
+
+        <!-- The action attribute is now ignored by our JS, but we keep it -->
+        <form class="login-form" action="#" method="post">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <!-- 'required' is removed as validation isn't needed for simple redirect -->
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+                 <!-- 'required' is removed -->
+            </div>
+            <div class="form-options">
+                 <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn btn-login">Login</button>
+        </form>
+
+        <div class="login-footer">
+            <p>Don't have an account? <a href="#">Sign Up</a></p> <!-- Link to potential signup page -->
+            <p><a href="index.html" class="back-to-home"><i class="fas fa-arrow-left"></i> Back to Homepage</a></p>
+        </div>
+    </div>
+
+    <!-- ==== START JAVASCRIPT FOR REDIRECT ==== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Find the login form using its class
+            const loginForm = document.querySelector('.login-form');
+
+            if (loginForm) {
+                // Add an event listener for the 'submit' event
+                loginForm.addEventListener('submit', (event) => {
+                    // 1. Prevent the default form submission behavior
+                    event.preventDefault();
+
+                    // 2. Redirect the user immediately to index.html
+                    window.location.href = 'index.html';
+                });
+            } else {
+                 // Optional: Log an error if the form isn't found
+                 console.error('Login form element with class "login-form" not found.');
+            }
+        });
+    </script>
+    <!-- ==== END JAVASCRIPT FOR REDIRECT ==== -->
+
+</body>
+</html>

@@ -1,0 +1,892 @@
+/* --- Global Styles & Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+}
+
+/* Define NEW Gold & Brown Color Palette */
+:root {
+    --primary-color: #CAA96F;   /* Soft Gold */
+    --secondary-color: #EAE0D5; /* Pale Beige/Tan */
+    --accent-color: #A3865C;   /* Deeper Gold/Bronze */
+    --text-color: #4A2F1A;     /* Dark Brown */
+    --light-text: #FFFDF6;     /* Warm Off-White */
+    --bg-light: #F8F4EC;       /* Very Light Cream/Beige */
+    --gradient-start: #EADCB1; /* Light Shimmering Gold */
+    --gradient-mid: #CAA96F;   /* Soft Gold */
+    --gradient-end: #8B5E3C;   /* Warm Brown */
+    --shadow-color: rgba(111, 78, 55, 0.1); /* Soft brown shadow base */
+    --font-body: 'Poppins', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    --danger-color: #c0392b; /* For potential error messages */
+}
+
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    /* Optional: Subtle Background Texture */
+    /* background-image: url('images/subtle-pattern.png'); */
+    /* background-repeat: repeat; */
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px; /* Slightly more padding */
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    font-weight: 600; /* Slightly bolder headings */
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); } /* Responsive h1 */
+h2 { font-size: clamp(2rem, 4vw, 2.8rem); text-align: center; margin-bottom: 1rem; } /* Center titles by default */
+h3 { font-size: clamp(1.3rem, 3vw, 1.6rem); color: var(--accent-color); }
+h4 { font-size: 1.1rem; color: var(--accent-color); margin-bottom: 0.8rem; }
+
+p {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    max-width: 70ch; /* Improve readability */
+}
+/* Center align paragraph within a centered heading section */
+h2 + p, h2 + hr + p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+a {
+    color: var(--accent-color); /* Use accent for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--primary-color); /* Lighter gold on hover */
+}
+
+/* Section Divider */
+.section-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+    margin: 0 auto 2.5rem auto; /* Center */
+    width: 50%;
+    max-width: 200px;
+}
+
+
+/* --- Header --- */
+.site-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(248, 244, 236, 0.85); /* Slightly more transparent bg-light */
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+    box-shadow: 0 2px 5px transparent; /* Start transparent */
+}
+
+.site-header.scrolled {
+     background-color: rgba(248, 244, 236, 0.95); /* More opaque on scroll */
+     box-shadow: 0 4px 10px var(--shadow-color);
+     padding: 0.75rem 0; /* Slightly smaller padding */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 150px; /* Adjust logo size */
+    display: block;
+    transition: transform 0.3s ease;
+}
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.main-nav li {
+    margin-left: 2.5rem; /* Increased spacing */
+}
+
+.main-nav a {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* More spacing */
+    font-size: 0.85rem;
+    padding-bottom: 8px; /* More space for underline */
+    position: relative;
+    color: var(--accent-color);
+}
+/* Specific style for Login link button */
+.main-nav a.nav-login-link {
+    border: 1px solid var(--secondary-color);
+    padding: 6px 15px; /* Adjust padding */
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin-left: 2.5rem; /* Ensure spacing */
+}
+.main-nav a.nav-login-link:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--light-text);
+}
+/* Hide underline effect for the button-style link */
+.main-nav a.nav-login-link::after {
+    display: none;
+}
+
+.main-nav a:not(.nav-login-link)::after { /* Apply underline only to non-button links */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Start from center */
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.4s ease;
+}
+
+.main-nav a:not(.nav-login-link):hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack content and scroll link */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px; /* More padding */
+    color: var(--light-text);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+    background-size: 250% 250%; /* Slightly smaller size for slower animation feel */
+    animation: gradientBG 18s ease infinite;
+    position: relative;
+    overflow: hidden; /* Hide overflow if needed */
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+    max-width: 850px;
+    text-shadow: 0 2px 8px rgba(60, 40, 20, 0.6); /* Darker brown shadow */
+    z-index: 2;
+    margin-bottom: 4rem; /* Space for scroll down button */
+}
+
+.hero-content h1 {
+    color: var(--light-text);
+}
+
+.hero-content p {
+    color: var(--light-text);
+    font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive */
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA Button */
+.btn {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1); /* Even more subtle */
+    color: var(--light-text);
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    border: 1px solid rgba(255, 253, 246, 0.5); /* Warmer border based on light-text */
+    transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer; /* Ensure pointer */
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Scroll Down Link */
+.scroll-down-link {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 253, 246, 0.7); /* Semi-transparent warm white */
+    font-size: 1.5rem;
+    z-index: 3;
+    animation: bounce 2s infinite;
+    transition: color 0.3s ease;
+}
+.scroll-down-link:hover {
+    color: var(--light-text);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+
+/* --- Content Sections --- */
+.content-section {
+    padding: 100px 0;
+}
+
+.content-section:nth-of-type(even) { /* Alternate background */
+    background-color: #fff; /* Use white for contrast */
+}
+
+
+/* About Section Split Layout */
+.split-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allow stacking on smaller screens */
+    align-items: center;
+    gap: 40px;
+}
+
+.split-content {
+    flex: 1;
+    min-width: 300px; /* Ensure content doesn't get too squished */
+}
+.split-content h2 { text-align: left; } /* Override centered heading */
+.split-content h2 + hr,
+.split-content h2 + hr + p {
+    margin-left: 0; /* Reset margin for left align */
+    margin-right: 0;
+    text-align: left;
+}
+.split-content .section-divider { width: 80px; margin-left: 0; background: linear-gradient(to right, var(--secondary-color), transparent); }
+
+
+.split-image {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.split-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+
+/* --- Shop Section --- */
+.shop-section {
+     background-color: var(--bg-light); /* Use light beige background */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* More gap */
+    margin-top: 3rem;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 12px; /* Slightly more rounded */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(111, 78, 55, 0.06); /* Even softer shadow */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent; /* Placeholder for hover border */
+}
+
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 18px 35px rgba(101, 71, 48, 0.15); /* Increased shadow */
+    border: 1px solid var(--secondary-color); /* Subtle border on hover */
+}
+
+.product-image {
+     overflow: hidden; /* Ensure zoomed image doesn't overflow card */
+     height: 280px; /* Fixed height */
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%; /* Fill container */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease; /* Slower zoom */
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1); /* Larger zoom effect */
+}
+
+.product-info {
+    padding: 30px 25px; /* More padding */
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-info h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+}
+
+.product-info p {
+    font-size: 0.95rem; /* Slightly larger desc */
+    color: #745A44;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.8rem;
+    display: block;
+}
+
+.btn-view {
+    background-color: transparent; /* Ghost button style */
+    color: var(--accent-color);
+    border: 1px solid var(--secondary-color); /* Use lighter border */
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500; /* Medium weight */
+    letter-spacing: 0.8px;
+    transition: all 0.3s ease;
+    align-self: center;
+    margin-top: auto; /* Push to bottom */
+}
+
+.btn-view:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--light-text);
+    transform: scale(1.05);
+}
+
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+     background-color: var(--secondary-color); /* Pale Beige/Tan */
+     position: relative;
+     /* Optional: Add subtle texture specific to this section */
+     /* background-image: url('images/testimonial-bg.png'); */
+     /* background-blend-mode: overlay; */
+     /* background-color: rgba(234, 224, 213, 0.8); Use if blending */
+}
+.testimonials-section h2 {
+    color: var(--accent-color); /* Darker heading for this section */
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    padding: 35px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.testimonial-content {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.testimonial-content p {
+    font-style: italic;
+    color: var(--text-color); /* Ensure text is readable */
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.7;
+}
+
+.quote-icon {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    opacity: 0.5;
+    position: absolute;
+}
+.quote-icon.fa-quote-left {
+    top: -10px;
+    left: -10px;
+}
+.quote-icon.fa-quote-right {
+    bottom: -10px;
+    right: -10px;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0; /* Reset paragraph margin */
+}
+
+
+/* --- Contact Section --- */
+.contact-section {
+    background-color: #fff; /* White background */
+    text-align: center;
+}
+
+.contact-section h2 {
+    color: var(--primary-color); /* Use primary gold */
+}
+
+.contact-email {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+.contact-email:hover {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+
+.social-prompt {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+}
+.social-icons a {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--gradient-end); /* Warm Brown */
+    color: var(--light-text);
+    padding: 60px 0 0 0; /* Add padding top, remove bottom */
+    margin-top: 0; /* Ensure no gap */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 253, 246, 0.2); /* Faint warm white line */
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    color: var(--light-text); /* Light heading in footer */
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+/* Underline effect for footer headings */
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color); /* Gold underline */
+}
+
+
+.footer-column p, .footer-column ul, .footer-column li {
+    color: rgba(255, 253, 246, 0.8); /* Lighter text */
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+.footer-links a {
+    color: rgba(255, 253, 246, 0.8);
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+.footer-links a:hover {
+    color: #fff; /* Pure white on hover */
+    padding-left: 5px; /* Slight indent on hover */
+}
+
+
+.newsletter-form {
+    display: flex;
+    margin-top: 1rem;
+    border-radius: 25px;
+    overflow: hidden; /* Clip button corners */
+    background-color: rgba(0,0,0,0.1); /* Dark overlay */
+}
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: none;
+    background-color: transparent; /* Transparent input */
+    color: var(--light-text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+.newsletter-form input[type="email"]::placeholder {
+    color: rgba(255, 253, 246, 0.6); /* Lighter placeholder */
+    opacity: 1; /* Override browser defaults */
+}
+
+.newsletter-form button.btn-submit {
+    background-color: var(--primary-color); /* Gold button */
+    border: none;
+    color: var(--light-text);
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+.newsletter-form button.btn-submit:hover {
+    background-color: var(--accent-color); /* Darker gold on hover */
+}
+
+
+.site-footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+.site-footer-bottom p {
+     color: rgba(255, 253, 246, 0.7); /* Subtler copyright text */
+     margin: 0;
+}
+
+/* --- Animations --- */
+/* Base state for all reveal animations */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.9s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-fade-up { transform: translateY(40px); }
+.reveal-fade-down { transform: translateY(-30px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-zoom-in { transform: scale(0.9); }
+
+/* Visible state */
+.reveal.visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Animation Delays */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+
+/* --- Responsive Design --- */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .main-nav li { margin-left: 1.5rem; }
+     .main-nav a.nav-login-link { margin-left: 1.5rem; } /* Adjust margin */
+    .footer-content { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+}
+
+
+@media (max-width: 768px) {
+    .site-header .container { flex-direction: column; }
+    .logo { margin-bottom: 1rem; }
+    .main-nav { width: 100%; margin-top: 0.5rem; } /* Add top margin */
+    .main-nav ul { justify-content: center; padding: 0; flex-wrap: wrap; gap: 0.8rem 1rem;} /* Adjust gap */
+    .main-nav li { margin-left: 0; } /* Reset margin */
+     .main-nav a.nav-login-link { margin-left: 0; } /* Reset margin */
+
+    .hero-section { padding-top: 150px; /* Adjust for potentially taller stacked header */ }
+    .split-layout { gap: 30px; }
+    .split-image { order: -1; /* Show image first on mobile if desired */ }
+    .content-section { padding: 80px 0; }
+
+    .product-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+    .product-image { height: 250px; }
+
+    .testimonial-grid { grid-template-columns: 1fr; } /* Stack testimonials */
+
+    .footer-content { text-align: center; }
+    .footer-column h4::after { left: 50%; transform: translateX(-50%); } /* Center underline */
+    .newsletter-form { max-width: 400px; margin-left: auto; margin-right: auto;}
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    html { font-size: 15px; } /* Slightly smaller base font */
+    .container { padding: 0 15px; }
+
+    .main-nav a { font-size: 0.8rem; padding-bottom: 5px;}
+    .main-nav ul { gap: 0.5rem 0.8rem; } /* Smaller gap */
+
+    .hero-section { padding: 140px 15px 40px; }
+    .hero-content { margin-bottom: 3rem; }
+    .scroll-down-link { font-size: 1.3rem; bottom: 20px; }
+
+    .content-section { padding: 60px 0; }
+    h2 { margin-bottom: 0.8rem; }
+    .section-divider { margin-bottom: 2rem; }
+    p { font-size: 0.95rem; }
+
+    .product-grid { grid-template-columns: 1fr; gap: 25px; }
+    .product-card:hover { transform: translateY(-8px); } /* Less pronounced hover on mobile */
+    .product-image { height: 260px; }
+    .product-info { padding: 25px 20px; }
+
+    .testimonial-card { padding: 25px 20px; }
+    .contact-email { font-size: 1.1rem; }
+
+    .footer-content { gap: 25px; padding-bottom: 25px; }
+    .footer-column { margin-bottom: 1.5rem; }
+    .site-footer { padding-top: 40px; }
+}
+
+
+/* =================================== */
+/* ========= LOGIN PAGE STYLES ========= */
+/* =================================== */
+
+/* Body Styling for Login Page */
+.login-page-body {
+    /* Apply the gradient background like the hero section */
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+    background-size: 250% 250%;
+    animation: gradientBG 18s ease infinite; /* Reuse gradient animation */
+    display: flex; /* Use flexbox to center the container */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure it takes full height */
+    padding: 20px;
+    font-family: var(--font-body); /* Ensure font is applied */
+}
+
+/* Login Container Box */
+.login-container {
+    background-color: rgba(255, 253, 246, 0.9); /* Semi-transparent warm off-white */
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(60, 40, 20, 0.2); /* Visible brown shadow */
+    width: 100%;
+    max-width: 450px; /* Max width for the login box */
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+.login-header .login-logo {
+    max-height: 50px;
+    margin-bottom: 1rem;
+}
+
+.login-header h2 {
+    color: var(--accent-color); /* Deeper gold for heading */
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem; /* Adjust size */
+}
+
+.login-header p {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Form Styles */
+.login-form {
+    text-align: left; /* Align labels and inputs left */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--secondary-color); /* Pale Tan border */
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent */
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Gold border on focus */
+    box-shadow: 0 0 0 3px rgba(202, 169, 111, 0.3); /* Gold glow */
+}
+
+.form-options {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+.forgot-password {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+.forgot-password:hover {
+    color: var(--primary-color);
+}
+
+/* Login Button */
+.btn-login {
+    width: 100%;
+    background-color: var(--primary-color); /* Gold background */
+    color: var(--light-text); /* Warm white text */
+    padding: 12px 20px; /* Standard padding */
+    border: none;
+    border-radius: 8px; /* Match input fields */
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(202, 169, 111, 0.3); /* Subtle gold shadow */
+}
+
+.btn-login:hover {
+    background-color: var(--accent-color); /* Darker gold */
+    transform: translateY(-2px);
+}
+
+/* Login Footer Links */
+.login-footer {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--secondary-color); /* Separator line */
+}
+
+.login-footer p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+}
+
+.login-footer a {
+    font-weight: 600;
+    color: var(--accent-color); /* Darker gold */
+}
+.login-footer a:hover {
+    color: var(--primary-color); /* Lighter gold */
+    text-decoration: underline;
+}
+.back-to-home i { /* Style icon if used */
+    margin-right: 5px;
+}
+
+/* Responsive Adjustments for Login Page */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 30px 25px; /* Less padding on mobile */
+    }
+    .login-header h2 {
+        font-size: 1.6rem;
+    }
+     .form-group input[type="email"],
+    .form-group input[type="password"] {
+        padding: 10px 12px;
+    }
+}
